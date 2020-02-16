@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d6d1765409b545beac4ee4f0ac7684b4" Name="Diagram1">
+        <EntityTypeShape EntityType="PocketModel.OrderMaster" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PocketModel.Product" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PocketModel.OrderDetail" Width="1.5" PointX="3" PointY="3.125" />
+        <AssociationConnector Association="PocketModel.FK_OrderDetail_OrderMaster" />
+        <AssociationConnector Association="PocketModel.FK_OrderDetail_Product" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
