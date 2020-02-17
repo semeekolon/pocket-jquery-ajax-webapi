@@ -69,13 +69,11 @@ $(document).ready(function () {
 
     $('#btnSubmit').click(function () {
 
-        
-
         if (flagEdit === false) {
 
             //Names must match with DB table column names
             $('#tbProductDets tr').each(function (index, ele) {
-                
+
                 var orderItem = {
                     Id: $('.id', this).text(),
                     ProductId: parseInt($('.productid', this).text()), // this here is tr
@@ -103,7 +101,6 @@ $(document).ready(function () {
             });
             $(".grandtotal").html(grandTotal);
 
-            flagEdit = true;
         }
         else {
 
@@ -140,10 +137,6 @@ $(document).ready(function () {
 
             flagEdit = true;
         }
-       
-       
-
-       
     });
 
     $('#btnSave').click(function () {
@@ -175,8 +168,8 @@ $(document).ready(function () {
     });
 
     $('#btnClose').click(function () {
+        $('#tbMProductDets').empty();
         flagEdit = true;
-        alert('btnClose');
     });
 });
 
