@@ -86,7 +86,7 @@ $(document).ready(function () {
                 list.push(orderItem);
             });
 
-            console.table([list]);
+            console.table(list);
 
 
             OrderMaster = {
@@ -144,7 +144,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'saveproducts',
+            url: 'saveordermaster',
             data: JSON.stringify(OrderMaster), // data : form fills and sends to the server
             contentType: 'application/json',
             success: function (result) { // contents in ok is returned by the server method

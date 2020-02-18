@@ -85,9 +85,9 @@ namespace Pocket.WebAPI.Controllers
 
         }
 
-        [Route("saveproducts")]
+        [Route("saveordermaster")]
         [HttpPost]
-        public IHttpActionResult SaveProducts(OrderMaster orderMaster)
+        public IHttpActionResult SaveOrderMaster(OrderMaster orderMaster)
         {
             try
             {
@@ -116,5 +116,6 @@ namespace Pocket.WebAPI.Controllers
                 return Content(HttpStatusCode.InternalServerError, false);
             }
         }
+
     }
 }
