@@ -127,7 +127,7 @@ $(document).ready(function () {
                 OrderDetails: list
             };
 
-            var grandTotal = 0;
+            let grandTotal = 0;
             $.each(list, function (idx, elem) {
                 $("#tbMProductDets").append("'\<tr>  '<td>" + elem.Name + "</td>  <td>" + elem.Price + "</td>'    <td>" + elem.Quantity + "</td> <td>" + elem.Total + "</td>  </tr>");
 
