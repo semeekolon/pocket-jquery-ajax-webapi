@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 
 namespace Pocket.WebAPI.Controllers
@@ -17,8 +18,8 @@ namespace Pocket.WebAPI.Controllers
             db = new PocketDb();
             db.Configuration.ProxyCreationEnabled = false;
         }
-       
 
+        [Authorize]
         [Route("getallproducts")]
         [HttpGet]
         public IHttpActionResult GetAllProducts()
@@ -29,7 +30,14 @@ namespace Pocket.WebAPI.Controllers
             {
                 var products = (from PROD in db.Products
                                 select PROD).ToList();
+
+                ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+                var claimsUserId = principal.Claims.Where(c => c.Type == "sUserId").Single().Value;
+                var claimssUsername = principal.Claims.Where(c => c.Type == "sUsername").Single().Value;
+
+
                 return Ok(products);
+
             }
             catch (Exception ex)
             {
@@ -148,6 +156,7 @@ namespace Pocket.WebAPI.Controllers
 
         }
 
+        [Authorize]
         [Route("saveproduct")]
         [HttpPost]
         public IHttpActionResult SaveProduct([FromBody] Product product)
