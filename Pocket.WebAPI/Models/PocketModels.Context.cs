@@ -28,5 +28,6 @@ namespace Pocket.WebAPI.Models
         public virtual DbSet<OrderMaster> OrderMasters { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+        public virtual DbSet<Login> Logins { get; set; }
     }
 }

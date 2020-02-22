@@ -117,5 +117,63 @@ namespace Pocket.WebAPI.Controllers
             }
         }
 
+        [Route("getallorderdetails")]
+        [HttpGet]
+        public IHttpActionResult GetAllOrderDetails()
+        {
+
+
+            try
+            {
+                var OrderDetails = (from PROD in db.Products
+                                    join ORDDT in db.OrderDetails
+                                    on PROD.Id equals ORDDT.ProductId
+                                    select new OrderDetV
+                                    {
+                                        Id = ORDDT.Id,
+                                        OrderMasterId = ORDDT.OrderMasterId,
+                                        ProductId = ORDDT.ProductId,
+                                        Name = PROD.Name,
+                                        Quantity = ORDDT.Quantity,
+                                        Total = ORDDT.Total
+                                    }).ToList();
+                return Ok(OrderDetails);
+            }
+            catch (Exception ex)
+            {
+                var errMsg = ex.Message;
+                return InternalServerError();
+            }
+
+
+        }
+
+        [Route("saveproduct")]
+        [HttpPost]
+        public IHttpActionResult SaveProduct([FromBody] Product product)
+        {
+
+
+            try
+            {
+                product.CreatedBy = 1;
+                product.CreatedDate = DateTime.Now;
+                product.ModifiedBy = 1;
+                product.ModifiedDate = DateTime.Now;
+
+                db.Products.Add(product);
+                db.SaveChanges();
+
+                return Ok("New Id: " + product.Id);
+            }
+            catch (Exception ex)
+            {
+                var errMsg = ex.Message;
+                return BadRequest("Failed to insert!");
+
+            }
+
+        }
+
     }
 }

@@ -10,6 +10,9 @@
         <EntityTypeShape EntityType="PocketModel.OrderDetail" Width="1.5" PointX="3" PointY="3.125" />
         <AssociationConnector Association="PocketModel.FK_OrderDetail_OrderMaster" />
         <AssociationConnector Association="PocketModel.FK_OrderDetail_Product" />
+        <EntityTypeShape EntityType="PocketModel.Login" Width="1.5" PointX="0.75" PointY="9.625" />
+        <AssociationConnector Association="PocketModel.FK_Product_Login" />
+        <AssociationConnector Association="PocketModel.FK_Product_Login1" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

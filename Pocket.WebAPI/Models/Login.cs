@@ -12,25 +12,23 @@ namespace Pocket.WebAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class Login
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Product()
+        public Login()
         {
-            this.OrderDetails = new HashSet<OrderDetail>();
+            this.Products = new HashSet<Product>();
+            this.Products1 = new HashSet<Product>();
         }
     
         public long Id { get; set; }
-        public string Name { get; set; }
-        public Nullable<int> Price { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public Nullable<System.DateTime> ModifiedDate { get; set; }
-        public Nullable<long> CreatedBy { get; set; }
-        public Nullable<long> ModifiedBy { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public Nullable<bool> IsDefaultPassword { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-        public virtual Login Login { get; set; }
-        public virtual Login Login1 { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products1 { get; set; }
     }
 }
